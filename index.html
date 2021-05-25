@@ -5,13 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TechIN</title>
     <style>
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: -moz-none;
+            /*IE10*/
+            -ms-user-select: none;
+            user-select: none;
+            /*You just need this if you are only concerned with android and not desktop browsers.*/
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        /* blue highlighting of icon and images */
+        
         * {
             margin: 0;
             padding: 0;
+            color: white;
             box-sizing: border-box;
         }
+        /* data stored */
+        
+        .clear {
+            padding: 15px;
+            min-width: auto;
+            color: white;
+            background: rgb(34, 34, 34);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .clear .cont {
+            overflow: hidden;
+            margin: 20px;
+            background: rgb(34, 34, 34);
+            color: white;
+            border-radius: 15px !important;
+            box-shadow: 0px 2px 20px 3px black;
+        }
+        
+        .clear .cont .pictext {
+            padding: 20px;
+        }
+        /* data stored */
         
          :root {
             --primary-color: #D96AA7;
@@ -23,7 +60,7 @@
         
         .container {
             background: #191919;
-            min-height: 100vh;
+            min-height: 100%;
             font-family: Montserrat, sans-serif;
         }
         
@@ -32,6 +69,19 @@
             justify-content: center;
             position: sticky;
             z-index: 200;
+        }
+        
+        .navi nav {
+            position: fixed;
+            top: 89%;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            height: 10vh;
+            border-radius: 30px;
+            background: black;
+            /* transform: translateY(-10%); */
         }
         
         .navi nav a {
@@ -46,35 +96,16 @@
             opacity: 0.7;
         }
         
-        .navi nav {
-            position: fixed;
-            top: 90vh;
-            /*bottom: 0;
-             right: 34%; */
-            padding: 0 20px;
-            z-index: 50;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            height: 10vh;
-            border-radius: 30px;
-            background: black;
-            transform: translateY(-10%);
-        }
-        
-        section {
+        .boticon {
             position: absolute;
             top: 0;
-            height: 100vh;
+            height: 100%;
             width: 0;
             opacity: 0;
-            transition: all ease-in .5s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* transition: all ease-in .5s; */
         }
         
-        section h1 {
+        .boticon h1 {
             color: #fff;
             font-size: 50px;
             text-transform: uppercase;
@@ -82,7 +113,7 @@
         }
         /* Styles applied on trigger */
         
-        section:target {
+        .boticon:target {
             opacity: 1;
             position: absolute;
             left: 0;
@@ -91,17 +122,19 @@
             z-index: 10;
         }
         
-        section:target h1 {
+        .boticon:target h1 {
             opacity: 0;
             animation: 2s fadeIn forwards .5s;
         }
         
         #first {
-            background: var(--primary-color);
+            background: rgb(34, 34, 34);
+            height: 100%;
         }
         
         #second {
             background: var(--complimentary-color);
+            height: 100%;
         }
         
         #third {
@@ -117,13 +150,6 @@
                 opacity: 1
             }
         }
-        
-        @media (max-width: 551px) {
-            nav a img {
-                height: 20px;
-                width: 20px;
-            }
-        }
     </style>
 </head>
 
@@ -137,49 +163,63 @@
         </nav>
     </div>
     <div class='container'>
-        <section id='first'>
-            <h1>reddit Lorem ipsum dolor sit, amet consecte
-                <br> tur adipisicing elit. Maxime veritatis dolo
-                <br> r facere illo quo dolorem, similique numqua
-                <br> m iust o autem optio quibusdam accusantium br
-                <br> illum nostrum tenetur quasi voluptat em hi c vel ipsam!
-            </h1>
-            <p>reddit Lorem ipsum dolor sit, amet consecte
-                <br> tur adipisicing elit. Maxime veritatis dolo
-                <br> r facere illo quo dolorem, similique numqua
-                <br> m iust o autem optio quibusdam accusantium br
-                <br> illum nostrum tenetur quasi voluptat em hi c vel ipsam!</p>
-            <p>reddit Lorem ipsum dolor sit, amet consecte
-                <br> tur adipisicing elit. Maxime veritatis dolo
-                <br> r facere illo quo dolorem, similique numqua
-                <br> m iust o autem optio quibusdam accusantium br
-                <br> illum nostrum tenetur quasi voluptat em hi c vel ipsam!</p>
-            <p>reddit Lorem ipsum dolor sit, amet consecte
-                <br> tur adipisicing elit. Maxime veritatis dolo
-                <br> r facere illo quo dolorem, similique numqua
-                <br> m iust o autem optio quibusdam accusantium br
-                <br> illum nostrum tenetur quasi voluptat em hi c vel ipsam!</p>
-            <p>reddit Lorem ipsum dolor sit, amet consecte
-                <br> tur adipisicing elit. Maxime veritatis dolo
-                <br> r facere illo quo dolorem, similique numqua
-                <br> m iust o autem optio quibusdam accusantium br
-                <br> illum nostrum tenetur quasi voluptat em hi c vel ipsam!</p>
+        <section class="boticon" id='first'>
+            <div class="clear">
+                <div class="cont">
+                    <p><img src="https://media.altpress.com/uploads/2018/09/apple-logo.png" width="100%" height="100%"><br>
+                        <p class="pictext">Inc. is an American multinational technology company, that designs, sells electronics, computer software. </p>
+                    </p>
+                </div>
+
+
+                <div class="cont">
+                    <p><img src="https://voxytalksy.com/wp-content/uploads/2018/08/google-voxytalksy.png" height=" 100% " width="100% "><br>
+                        <p class="pictext">Google LLC is an American multinational technology company that specializes in Internet-related services</p>
+                    </p>
+                </div>
+
+
+                <div class="cont ">
+                    <p><img src="https://yotstore.com/wp-content/uploads/2019/11/1053991370-1.jpg " height="100%" width="100%"><br>
+                        <p class="pictext">Microsoft Corporation is an American MNC . It develops, and sells computer software, and related services.</p>
+                    </p>
+                </div>
+
+                <div class="cont">
+                    <p><img src="reddit.png" title="top tech image" alt="google logo" height="100%" width="100%"><br>
+                        <p class="pictext">Google LLC is an American multinational technology company that specializes in Internet-related serviceshat specializes in Internet-related services</p>
+                    </p>
+                </div>
+
+
+                <div class="cont">
+                    <p><img src="image/redmi.jpg" title="top tech image" alt="google logo" height="100%" width="100%"><br></p>
+                </div>
+                <div class="cont">
+                    <p><img src="image/redmi.jpg" title="top tech image" alt="google logo" height="100%" width="100%"><br></p>
+                </div>
+                <div class="cont">
+                    <p><img src="image/redmi.jpg" title="top tech image" alt="google logo" height="100%" width="100%"><br></p>
+                </div>
+                <div class="cont">
+                    <p><img src="image/redmi.jpg" title="top tech image" alt="google logo" height="100%" width="100%"><br></p>
+                </div>
+            </div>
+
         </section>
 
-        <section id='second'>
+        <section class="boticon" id='second'>
             <h1>youtube</h1>
         </section>
 
-        <section id='third'>
+        <section class="boticon" id='third'>
             <h1>spotify</h1>
         </section>
 
-        <section id='fourth'>
+        <section class="boticon" id='fourth'>
             <h1>crypto</h1>
         </section>
     </div>
 </body>
-
-</html>
 
 </html>
